@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CrashShop</title>
+	</head>
+
+	<body class="page">
+		<div class="page__content">
+			<header class="header">
+				<div class="container">
+					<nav class="header__nav">
+						<div class="logo">
+							<img class="logo__image" src="/images/logo.svg" alt="Logo" />
+						</div>
+						<img class="busket" src="/images/busket.svg" alt="" />
+					</nav>
+				</div>
+			</header>
+			<main class="content">
+				<section class="products">
+					<div class="container">
+						<ul class="products__list"></ul>
+					</div>
+				</section>
+			</main>
+			<footer class="footer">
+				<div class="footer__title">&copy; CrashShop</div>
+			</footer>
+		</div>
+
+		<div class="popup">
+			<div class="popup__container">
+				<button class="popup__close"></button>
+				<div class="popup__content"></div>
+			</div>
+		</div>
+
+		<template id="product-item-template">
+			<li class="product-item">
+				<article class="product">
+					<p class="product__category"></p>
+					<div class="product__image-wrapper">
+						<img class="product__image" src="" alt="" />
+					</div>
+					<p class="product__title"></p>
+					<span class="product__price"></span>
+				</article>
+			</li>
+		</template>
+	</body>
+</html>
