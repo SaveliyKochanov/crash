@@ -1,13 +1,12 @@
-import { IBusketProduct, IProduct, IProductsModel } from './../types/index'
-
-export class ProductsModel implements IProductsModel {
-	protected _products: IProduct[]
+import { IBusketModel, IBusketProduct, IProduct } from './../types/index';
+export class BusketModel implements IBusketModel {
+	protected _products: IBusketProduct[]
 
 	constructor() {
 		this._products = []
 	}
 
-	set products(data: IProduct[]) {
+	set products(data: IBusketProduct[]) {
 		this._products = data
 	}
 

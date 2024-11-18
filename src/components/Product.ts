@@ -1,6 +1,18 @@
 import { IProduct } from './../types/index'
 
-export class Product {
+export interface IViewProduct {
+	id: string
+	title: string
+	category: string
+	price: string
+	render(product: IProduct): HTMLElement
+}
+
+export interface IViewProductConstructor {
+	new (template: HTMLTemplateElement): IViewProduct
+}
+
+export class Product implements IViewProduct{
 	protected _id: string
 	protected productElement: HTMLElement
 	protected productCategory: HTMLElement
@@ -29,6 +41,22 @@ export class Product {
 
 	get title() {
 		return this.productTitle.textContent || ''
+	}
+
+	set category(data: string) {
+		this.productCategory.textContent = data
+	}
+
+	get category() {
+		return this.productCategory.textContent || ''
+	}
+
+	set price(data: string) {
+		this.productPrice.textContent = data
+	}
+
+	get price() {
+		return this.productPrice.textContent
 	}
 
 	render(data: IProduct) {

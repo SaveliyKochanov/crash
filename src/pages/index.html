@@ -23,6 +23,9 @@
 					<div class="container">
 						<ul class="products__list"></ul>
 					</div>
+					<div class="busket__container">
+						<ul class="busket__products-list"></ul>
+					</div>
 				</section>
 			</main>
 			<footer class="footer">
@@ -49,5 +52,25 @@
 				</article>
 			</li>
 		</template>
+
+		<template id="busket-product-template">
+			<li class="busket-product-item">
+				<article class="busket-product">
+					<span class="busket-product__index"></span>
+					<p class="busket-product__category"></p>
+					<p class="busket-product__title"></p>
+					<span class="busket-product__price"></span>
+					<button class="delete-button">удалить</button>
+				</article>
+			</li>
+		</template>
+
+		<!-- <template id='busket-template'>
+			<div class="busket__container">
+				<ul class="busket__products-list">
+				
+				</ul>
+			</div>
+		</template> -->
 	</body>
 </html>
