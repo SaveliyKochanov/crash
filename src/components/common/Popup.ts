@@ -22,6 +22,10 @@ export class Popup {
 		this._content.replaceChildren(value)
 	}
 
+	get content() {
+		return this._content
+	}
+
 	open() {
 		this.container.classList.add('popup_is-opened')
 	}

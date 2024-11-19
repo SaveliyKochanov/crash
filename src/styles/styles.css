@@ -10,6 +10,7 @@
 .container {
 	margin: 0 auto;
 	inline-size: 1100px;
+	font-family: 'JetBrains Mono', sans-serif;
 }
 
 .header {
@@ -25,6 +26,62 @@
 
 .busket {
 	cursor: pointer;
+}
+
+.busket__container {
+	background-color: #25424a;
+	border-radius: 40px;
+	padding: 40px 20px 20px;
+	font-family: 'JetBrains Mono', sans-serif;
+	color: #fff;
+}
+
+.busket__title {
+	font-size: 20px;
+	color: #fff;
+}
+
+.busket__products-list {
+	display: flex;
+	flex-direction: column;
+}
+
+.busket-product__index {
+	position: relative;
+	z-index: 1;
+}
+.busket-product__index::before {
+	content: '';
+	position: absolute;
+	top: -7px;
+	right: -12px;
+	z-index: -1;
+	background: #6e1d1d;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.first__column {
+	display: flex;
+	column-gap: 25px;
+	align-items: center;
+	text-align: center;
+}
+
+.second__column {
+	display: flex;
+	column-gap: 60px;
+}
+
+.busket-product {
+	align-items: center;
+	text-align: center;
+	display: flex;
+	justify-content: space-between;
+	font-size: 25px;
+	border-bottom: 0.5px solid #2c3351;
+	padding: 20px 0;
 }
 
 .header__title {
@@ -61,6 +118,10 @@
 	margin-block-end: 10px;
 }
 
+.product__price {
+	font-size: 18px;
+}
+
 .product__image-wrapper {
 	background-color: #bba572;
 	border-radius: 10px;
@@ -86,7 +147,6 @@
 	left: 0;
 	bottom: 0;
 	right: 0;
-	/*Стили для плавного появления модалки*/
 	visibility: hidden;
 	opacity: 0;
 	pointer-events: none;
@@ -102,14 +162,14 @@
 }
 
 .popup__close {
-	width: 35px;
-	height: 35px;
+	width: 42px;
+	height: 42px;
 	background: transparent url('../images/close.svg') center no-repeat;
-	background-size: 35px 35px;
+	background-size: 42px 42px;
 	border: none;
 	position: absolute;
-	top: -36px;
-	right: -34px;
+	top: 20px;
+	right: 20px;
 	-webkit-transform: rotate(90deg);
 	-moz-transform: rotate(90deg);
 	-ms-transform: rotate(90deg);
@@ -125,14 +185,16 @@
 	opacity: 0.6;
 }
 
+.popup__content {
+	block-size: 100%;
+}
+
 .popup__container {
-	max-width: 700px;
+	border-radius: 40px;
+	max-width: 915px;
 	width: 100%;
 	min-height: 100px;
-	background-color: rgb(55, 54, 54);
-	border: white 2px solid;
-	border-radius: 10px;
+	/* background-color: rgb(55, 54, 54); */
 	position: relative;
 	box-sizing: border-box;
-	padding: 34px 36px;
 }

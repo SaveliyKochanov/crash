@@ -23,9 +23,6 @@
 					<div class="container">
 						<ul class="products__list"></ul>
 					</div>
-					<div class="busket__container">
-						<ul class="busket__products-list"></ul>
-					</div>
 				</section>
 			</main>
 			<footer class="footer">
@@ -49,6 +46,7 @@
 					</div>
 					<p class="product__title"></p>
 					<span class="product__price"></span>
+					<button class="product__button">buy</button>
 				</article>
 			</li>
 		</template>
@@ -56,21 +54,24 @@
 		<template id="busket-product-template">
 			<li class="busket-product-item">
 				<article class="busket-product">
-					<span class="busket-product__index"></span>
-					<p class="busket-product__category"></p>
-					<p class="busket-product__title"></p>
-					<span class="busket-product__price"></span>
-					<button class="delete-button">удалить</button>
+					<div class="first__column">
+						<span class="busket-product__index"></span>
+						<p class="busket-product__category"></p>
+						<p class="busket-product__title"></p>
+					</div>
+					<div class="second__column">
+						<span class="busket-product__price"></span>
+						<img class="delete-button" src="/images/busket-product.svg" />
+					</div>
 				</article>
 			</li>
 		</template>
 
-		<!-- <template id='busket-template'>
+		<template id="busket-template">
 			<div class="busket__container">
-				<ul class="busket__products-list">
-				
-				</ul>
+				<h2 class="busket__title">Корзина</h2>
+				<ul class="busket__products-list"></ul>
 			</div>
-		</template> -->
+		</template>
 	</body>
 </html>

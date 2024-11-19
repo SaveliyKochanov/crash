@@ -1,4 +1,4 @@
-import { IBusketModel, IBusketProduct, IProduct } from './../types/index';
+import { IBusketModel, IBusketProduct } from './../types/index'
 export class BusketModel implements IBusketModel {
 	protected _products: IBusketProduct[]
 
@@ -18,8 +18,11 @@ export class BusketModel implements IBusketModel {
 		this._products = this._products.filter(product => product.id != id)
 	}
 
-	addProduct(data: IProduct) {
-		const uniqueId: number = Math.max(...this._products.map(product => Number(product.id))) + 1
-		return { id: uniqueId, ...data }
+	addProduct(data: IBusketProduct) {
+		const uniqueId: number =
+			Math.max(...this._products.map(product => Number(product.id)), 0) + 1
+		const newProduct = { id: uniqueId.toString(), ...data }
+		this._products.push(newProduct)
+		return newProduct
 	}
 }

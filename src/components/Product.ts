@@ -5,6 +5,7 @@ export interface IViewProduct {
 	title: string
 	category: string
 	price: string
+	setAddHandler(handleBuyFunction: Function): void
 	render(product: IProduct): HTMLElement
 }
 
@@ -12,20 +13,26 @@ export interface IViewProductConstructor {
 	new (template: HTMLTemplateElement): IViewProduct
 }
 
-export class Product implements IViewProduct{
+export class Product implements IViewProduct {
 	protected _id: string
+	protected handleBuyFunction: Function
 	protected productElement: HTMLElement
 	protected productCategory: HTMLElement
 	protected productImage: HTMLImageElement
 	protected productTitle: HTMLElement
 	protected productPrice: HTMLElement
+	protected productButton: HTMLButtonElement
 
 	constructor(cardTemplate: HTMLTemplateElement) {
-		this.productElement = cardTemplate.content.querySelector('.product-item').cloneNode(true) as HTMLElement
-		this.productCategory = this.productElement.querySelector('.product__category')
+		this.productElement = cardTemplate.content
+			.querySelector('.product-item')
+			.cloneNode(true) as HTMLElement
+		this.productCategory =
+			this.productElement.querySelector('.product__category')
 		this.productImage = this.productElement.querySelector('.product__image')
 		this.productTitle = this.productElement.querySelector('.product__title')
 		this.productPrice = this.productElement.querySelector('.product__price')
+		this.productButton = this.productElement.querySelector('.product__button')
 	}
 	set id(data: string) {
 		this._id = data
@@ -57,6 +64,13 @@ export class Product implements IViewProduct{
 
 	get price() {
 		return this.productPrice.textContent
+	}
+
+	setAddHandler(handleBuyFunction: Function) {
+		this.handleBuyFunction = handleBuyFunction
+		this.productButton.addEventListener('click', () => {
+			this.handleBuyFunction(this)
+		})
 	}
 
 	render(data: IProduct) {

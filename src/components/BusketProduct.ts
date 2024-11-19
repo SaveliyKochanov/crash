@@ -1,6 +1,7 @@
 import { IBusketProduct } from '../types'
 
 export interface IViewBusketProduct {
+	index: string
 	id: string
 	title: string
 	category: string
@@ -14,21 +15,36 @@ export interface IViewBusketProductConstructor {
 }
 
 export class BusketProduct implements IViewBusketProduct {
+	protected productIndex: HTMLElement
 	protected _id: string
 	protected productElement: HTMLElement
 	protected productCategory: HTMLElement
 	protected productTitle: HTMLElement
 	protected productPrice: HTMLElement
-	protected index: HTMLElement
 	protected deleteButton: HTMLElement
 	protected handleDeleteFunction: Function
 
 	constructor(cardTemplate: HTMLTemplateElement) {
-		this.productElement = cardTemplate.content.querySelector('.busket-product-item') as HTMLElement
-		this.productCategory = this.productElement.querySelector('.busket-product__category') as HTMLElement
-		this.productTitle = this.productElement.querySelector('.busket-product__title') as HTMLElement
-		this.productPrice = this.productElement.querySelector('.busket-product__price') as HTMLElement
+		this.productElement = cardTemplate.content
+			.querySelector('.busket-product-item')
+			.cloneNode(true) as HTMLElement
+		this.productIndex = this.productElement.querySelector(
+			'.busket-product__index'
+		)
+		this.productCategory = this.productElement.querySelector(
+			'.busket-product__category'
+		) as HTMLElement
+		this.productTitle = this.productElement.querySelector(
+			'.busket-product__title'
+		) as HTMLElement
+		this.productPrice = this.productElement.querySelector(
+			'.busket-product__price'
+		) as HTMLElement
 		this.deleteButton = this.productElement.querySelector('.delete-button')
+	}
+
+	set index(data: string) {
+		this.productIndex.textContent = data
 	}
 
 	set id(data: string) {
@@ -65,15 +81,17 @@ export class BusketProduct implements IViewBusketProduct {
 
 	setDeleteHandler(handleDeleteFunction: Function) {
 		this.handleDeleteFunction = handleDeleteFunction
-		this.deleteButton.addEventListener('click', evt => {
+		this.deleteButton.addEventListener('click', () => {
 			this.handleDeleteFunction(this)
 		})
 	}
 
 	render(data: IBusketProduct) {
-		this.productCategory.textContent = data.category
-		this.productTitle.textContent = data.title
-		this.productPrice.textContent = data.price
+		this.id = data.id
+		this.title = data.title
+		this.category = data.category
+		this.price = data.price + '$'
+
 		return this.productElement
 	}
 }
