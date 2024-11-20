@@ -23,4 +23,5 @@ export interface IBusketModel {
 	products: IBusketProduct[]
 	addProduct: (data: IBusketProduct) => IBusketProduct
 	removeProduct: (id: string) => void
+	getTotal: () => string
 }

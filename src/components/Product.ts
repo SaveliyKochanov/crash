@@ -24,11 +24,8 @@ export class Product implements IViewProduct {
 	protected productButton: HTMLButtonElement
 
 	constructor(cardTemplate: HTMLTemplateElement) {
-		this.productElement = cardTemplate.content
-			.querySelector('.product-item')
-			.cloneNode(true) as HTMLElement
-		this.productCategory =
-			this.productElement.querySelector('.product__category')
+		this.productElement = cardTemplate.content.querySelector('.product-item').cloneNode(true) as HTMLElement
+		this.productCategory = this.productElement.querySelector('.product__category')
 		this.productImage = this.productElement.querySelector('.product__image')
 		this.productTitle = this.productElement.querySelector('.product__title')
 		this.productPrice = this.productElement.querySelector('.product__price')
@@ -77,7 +74,7 @@ export class Product implements IViewProduct {
 		this.productCategory.textContent = data.category
 		this.productImage.src = data.src
 		this.productTitle.textContent = data.title
-		this.productPrice.textContent = data.price
+		this.productPrice.textContent = data.price + '$'
 		return this.productElement
 	}
 }

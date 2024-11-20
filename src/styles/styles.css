@@ -2,9 +2,16 @@
 @import './normalize.css';
 
 .page {
-	min-height: 100vh;
+	position: relative;
+	height: 100vh;
 	background: #25424a;
 	font-family: 'JetBrains Mono', sans-serif;
+}
+
+.page__content {
+	display: flex;
+	flex-direction: column;
+	flex: 1 0 auto;
 }
 
 .container {
@@ -31,9 +38,12 @@
 .busket__container {
 	background-color: #25424a;
 	border-radius: 40px;
-	padding: 40px 20px 20px;
+	padding: 60px 20px 20px;
 	font-family: 'JetBrains Mono', sans-serif;
 	color: #fff;
+	min-block-size: 483px;
+	display: flex;
+	flex-direction: column;
 }
 
 .busket__title {
@@ -49,6 +59,7 @@
 .busket-product__index {
 	position: relative;
 	z-index: 1;
+	padding: 0 0 0 12px;
 }
 .busket-product__index::before {
 	content: '';
@@ -72,6 +83,18 @@
 .second__column {
 	display: flex;
 	column-gap: 60px;
+}
+
+.busket__bottom {
+}
+
+.busket__submit {
+	padding: 9px 54px;
+	color: #000;
+	background-color: #bba572;
+	border-radius: 20px;
+	font-size: 25px;
+	cursor: pointer;
 }
 
 .busket-product {
@@ -120,6 +143,7 @@
 
 .product__price {
 	font-size: 18px;
+	margin: 0 0 20px 0;
 }
 
 .product__image-wrapper {
@@ -135,6 +159,30 @@
 
 .product__title {
 	font-size: 20px;
+}
+
+.product__button {
+	background-color: #6e1d1d;
+	color: #fff;
+	inline-size: 100%;
+	padding: 6px 0;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 0.3s ease;
+}
+
+.product__button:hover {
+	background-color: #4d1212;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.footer__title {
+	/* text-align: center; */
 }
 .popup {
 	font-family: 'Inter', Arial, sans-serif;

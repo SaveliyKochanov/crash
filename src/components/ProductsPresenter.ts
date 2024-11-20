@@ -6,16 +6,8 @@ import { IPopup } from './common/Popup'
 export class ProductPresenter {
 	protected productTemplate: HTMLTemplateElement
 
-	constructor(
-		protected model: IProductsModel,
-		protected busketModel: IBusketModel,
-		protected viewPageContainer: IPage,
-		protected viewProductConstructor: IViewProductConstructor,
-		protected modal: IPopup
-	) {
-		this.productTemplate = document.querySelector(
-			'#product-item-template'
-		) as HTMLTemplateElement
+	constructor(protected model: IProductsModel, protected busketModel: IBusketModel, protected viewPageContainer: IPage, protected viewProductConstructor: IViewProductConstructor, protected modal: IPopup) {
+		this.productTemplate = document.querySelector('#product-item-template') as HTMLTemplateElement
 	}
 
 	handleAddItem(product: IProduct) {
@@ -25,7 +17,6 @@ export class ProductPresenter {
 			title: product.title,
 			price: product.price,
 		})
-		console.log('Корзина после добавления:', this.busketModel.products) // Должны быть данные
 	}
 
 	renderView() {
