@@ -1,4 +1,6 @@
 # CRASH
+![image](https://github.com/user-attachments/assets/3282ec48-eb08-4d17-ad0c-d187efae32cc)
+
 
 Стек: HTML, SCSS, TS, Webpack
 
